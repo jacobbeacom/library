@@ -14,7 +14,7 @@ function addBookToLibrary() {
 
 }
 
-/* Function to display all book objects */
+/* Function to display all book objects (make the divs)*/
 
 function bookstoDisplay() {
 
@@ -33,7 +33,7 @@ display */
 /* Function to toggle the read status of a book */
 
 function toggleReadStatus() {
-    
+
 }
 
 /* button or toggle to toggle the read status of a book */
