@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="scripts.js"></script>
+    <script src="scripts.js" defer></script>
     <title>Library App</title>
     <script src="https://kit.fontawesome.com/a653626f68.js" crossorigin="anonymous"></script>
 </head>
@@ -16,23 +16,26 @@
             <button id="addBook">Add Book</button>
         </div>
         <div class="body">
-            <div class="form-popup">
+            <div class="form-popup" id="myForm">
                 <form class="form-container">
                     <h2>Add Book</h2>
                     <label for="title"><b>Title</b></label>
-                    <input type="text" placeholder="Title of Book" name="title" required>
+                    <input type="text" placeholder="Title of Book" name="title" required id="title">
 
                     <label for="author"><b>Author</b></label>
-                    <input type="text" placeholder="Author of Book" name="author" required>                    
+                    <input type="text" placeholder="Author of Book" name="author" required id="author">                    
 
                     <label for="pagecount"><b>Number of Pages</b></label>
-                    <input type="number" placeholder="No. of Pages" name="pagecount" required> 
+                    <input type="number" placeholder="No. of Pages" name="pagecount" required id="pagecount"> 
 
-                    <label for="beenRead"><b>Read?</b></label>
-                    <input type="radio" name="beenRead" required> 
+                    <button type="button" class="beenRead" id="beenRead">Read?</button>
 
-                    <button type="submit" class="submit">Submit</button>
-                    <button type="button" class="btn-cancel" onclick="closeForm()">Cancel</button>
+                    <div class="formButtons">
+                        <button type="button" id="submit">Submit</button>
+                        <button type="button" class="btn-cancel" onclick="closeForm()">Cancel</button>
+                    </div>
+                   
+                    
                 </form>
             </div>
 
@@ -41,9 +44,8 @@
         </div>
 
     <div class="footer">
-        <p id="copyright">Jacob Beacom © 2021 <a href="https://github.com/jacobbeacom">
-                                                    <i class="fab fa-github"></i>
-                                                        </a> 
+        <p id="copyright">Jacob Beacom © 2021 
+            <a href="https://github.com/jacobbeacom"><i class="fab fa-github"></i></a> 
         </p>
     
     
