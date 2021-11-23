@@ -21,6 +21,7 @@ flex-direction: row;
 justify-content: space-between;
 background-color: #6200ee;
 flex-basis: 15%;
+order: 1;
 
 }
 
@@ -29,7 +30,12 @@ h1 {
 }
 
 .body {
-flex-basis: 80%;
+min-width: 100vw;
+order: 2;
+flex-grow: 1;
+display: flex;
+flex-wrap: wrap;
+
 }
 
 .footer {
@@ -40,12 +46,16 @@ position: absolute;
 bottom: 0;
 text-align: center;
 min-width: 100vw;
+order: 3;
 }
 
 #addBook {
     background-color: #03DAC5;
     color: black;
     padding: 0px 10px;
-    border: 0;
+    border: 1px solid #009b8b;
     border-radius: 8px;
+    height: 40.4px;
+    align-self: center;
+    margin-right: 10px;
 }

@@ -16,6 +16,25 @@
             <button id="addBook">Add Book</button>
         </div>
         <div class="body">
+            <div class="form-popup">
+                <form class="form-container">
+                    <h2>Add Book</h2>
+                    <label for="title"><b>Title</b></label>
+                    <input type="text" placeholder="Title of Book" name="title" required>
+
+                    <label for="author"><b>Author</b></label>
+                    <input type="text" placeholder="Author of Book" name="author" required>                    
+
+                    <label for="pagecount"><b>Number of Pages</b></label>
+                    <input type="number" placeholder="No. of Pages" name="pagecount" required> 
+
+                    <label for="beenRead"><b>Read?</b></label>
+                    <input type="radio" name="beenRead" required> 
+
+                    <button type="submit" class="submit">Submit</button>
+                    <button type="button" class="btn-cancel" onclick="closeForm()">Cancel</button>
+                </form>
+            </div>
 
         </div>
 
