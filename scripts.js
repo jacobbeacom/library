@@ -16,6 +16,30 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
+
+//Function to create a new Div
+
+function makeDiv() {
+    const container = document.getElementsByClassName('body')
+    const card = document.createElement('div');
+    card.classList.add("bookCard");
+    const cardContent = 
+    <div class="card">
+    <div class="cardHeader">
+        <p>`${myLibrary[i].title}`</p>
+    </div>
+        <div class="cardContainer">
+            <p>`Author: ${myLibrary[i].author}`</p>
+            <p>`Page Count: ${myLibrary[i].pagecount}`</p>
+            <button>Read?</button>
+        </div>
+
+</div>
+;
+container.innerHTML += cardContent;
+}
+
+
 /* Function to display all book objects */
 
 function bookstoDisplay() {
@@ -24,16 +48,19 @@ function bookstoDisplay() {
     }
 }
 
-/* Button to add new book to the library */
+    //function to open the popup
     
 function openForm() {
     document.getElementById("myForm").style.display = "block";
   }
 
+  //function to close the popup
+
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 
+/* Button to add new book to the library */
 
 let addBook = document.getElementById("addBook")
 
@@ -81,5 +108,5 @@ function toggleReadStatus() {
     // toggle read button
 
 
-//Closes the popup form when adding a new book
+
 
