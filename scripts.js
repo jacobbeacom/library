@@ -19,24 +19,23 @@ function addBookToLibrary(book) {
 
 //Function to create a new Div
 
-function makeDiv() {
-    const container = document.getElementsByClassName('body')
-    const card = document.createElement('div');
-    card.classList.add("bookCard");
-    const cardContent = 
-    <div class="card">
-    <div class="cardHeader">
-        <p>`${myLibrary[i].title}`</p>
-    </div>
-        <div class="cardContainer">
-            <p>`Author: ${myLibrary[i].author}`</p>
-            <p>`Page Count: ${myLibrary[i].pagecount}`</p>
-            <button>Read?</button>
+function makeCard() {
+    let container = document.getElementById('body');
+    let card = document.createElement('div');
+        card.className = "bookCard";
+        card.id = "card" + myLibrary; 
+        card.innerHTML = `<div class="card">
+        <div class="cardHeader">
+            <p>Title</p>
         </div>
-
-</div>
-;
-container.innerHTML += cardContent;
+            <div class="cardContainer">
+                <p>Author: J.R.R Tolkien</p>
+                <p>Page Count: 900</p>
+               <button>Read?</button>
+            </div>
+            </div>`;
+        container.appendChild(card);
+ 
 }
 
 
