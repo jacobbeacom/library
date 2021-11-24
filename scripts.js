@@ -31,10 +31,12 @@ function makeCard() {
             <div class="cardContainer">
                 <p>Author: J.R.R Tolkien</p>
                 <p>Page Count: 900</p>
-               <button>Read?</button>
+               <button id="readButton">Read</button>
             </div>
             </div>`;
-        container.appendChild(card);
+        
+        
+            container.appendChild(card);
  
 }
 
@@ -97,6 +99,7 @@ display */
 function toggleReadStatus() {
     if (beenRead != true) {
         beenRead = true;
+
     } else {
         beenRead = false;
     
