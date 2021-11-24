@@ -19,25 +19,29 @@ function addBookToLibrary(book) {
 
 //Function to create a new Div
 
-function makeCard() {
-    let container = document.getElementById('body');
-    let card = document.createElement('div');
+function makeCard(newBook) {
+let container = document.getElementById('body');  
+let card = document.createElement('div');
         card.className = "bookCard";
-        card.id = "card" + myLibrary; 
-        card.innerHTML = `<div class="card">
-        <div class="cardHeader">
-            <p>Title</p>
-        </div>
-            <div class="cardContainer">
-                <p>Author: J.R.R Tolkien</p>
-                <p>Page Count: 900</p>
-               <button id="readButton">Read</button>
+        card.id = myLibrary.indexOf(newBook)
+        card.innerHTML = 
+        `<div class="card">
+            <div class="cardHeader">
+                <p>${newBook.title}</p>
             </div>
-            </div>`;
-        
-        
-            container.appendChild(card);
- 
+            <div class="cardContainer">
+                <p>Author: ${newBook.author}</p>
+                <p>Page Count: ${newBook.pagecount}</p>
+                <div class="buttons">                 
+                    <button id="readButton" class=
+                    ${newBook.beenRead == true ? 'readButtonTrue' : 'readButtonFalse'}>Read</button>    
+                    <button id="deleteBook">Delete</button>
+                </div>    
+            </div>
+        </div>`;
+    container.appendChild(card);
+    
+
 }
 
 
@@ -45,7 +49,9 @@ function makeCard() {
 
 function bookstoDisplay() {
     for (i=0; i < myLibrary.length; i++) {
-        
+        if (document.getElementById(myLibrary[i]) == null) {
+            makeCard(myLibrary[i]);
+        }
     }
 }
 
@@ -72,17 +78,30 @@ let author = document.getElementById("author");
 let pagecount = document.getElementById("pagecount");
 let beenReadButton = document.getElementById("beenRead");
 let submitButton = document.getElementById("submit");
-let beenRead = false;
-    
-beenReadButton.addEventListener('click', toggleReadStatus);
+
+
+
+Book.prototype.changeReadStatus = function() {
+    if (this.beenRead === true) {
+        this.beenRead = false;
+    } else {
+        this.beenRead = true;
+    }
+}
+
+
+
 
 submitButton.addEventListener('click', () => {
         let newBook = Object.create(Book);
             newBook.title = title.value;
             newBook.author = author.value;
             newBook.pagecount = pagecount.value;
-            newBook.beenRead = beenRead;
+            newBook.beenRead = beenReadButton.checked; 
+
+            
     addBookToLibrary(newBook);
+    makeCard(newBook);
     closeForm();
 });
 
@@ -93,22 +112,31 @@ display */
     
     // remove book button
 
-
-/* Function to toggle the read status of a book */
-
-function toggleReadStatus() {
-    if (beenRead != true) {
-        beenRead = true;
-
-    } else {
-        beenRead = false;
-    
-}};
-
 /* button or toggle to toggle the read status of a book */
 
-    // toggle read button
+let readButton = document.getElementById('readButton');
 
+function toggleReadStatus(newBook) {
+    if (newBook.beenRead != true) {
+        newBook.beenRead = true;
+        readButton.classList.add('readButtonTrue');
+    } else {
+        newBook.beenRead = false;
+        readButton.classList.add('readButtonFalse');
+         }
+    
+}
+
+
+/* Prototype Function to toggle the read status of a book */
+
+Book.prototype.readStatus = function() {
+    if (this.readStatus === true) {
+        this.readStatus = false;
+    } else {
+        this.readStatus = true;
+    }
+}
 
 
 

@@ -28,7 +28,7 @@
                     <label for="pagecount"><b>Number of Pages</b></label>
                     <input type="number" placeholder="No. of Pages" name="pagecount" required id="pagecount"> 
 
-                    <button type="button" class="beenRead" id="beenRead">Read?</button>
+                    <input type="checkbox" class="beenRead" id="beenRead">Read?</button>
 
                     <div class="formButtons">
                         <button type="button" id="submit">Submit</button>
@@ -46,7 +46,10 @@
                     <div class="cardContainer">
                         <p>Author: Your mother</p>
                         <p>Page Count: 4000</p>
-                        <button id="readButtonTrue">Read</button>
+                        <div class="buttons">               
+                            <button class="readButtonTrue">Read</button>
+                            <button id="deleteBook">Delete</button>
+                        </div>  
                     </div>
             
             </div>

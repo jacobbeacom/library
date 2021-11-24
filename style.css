@@ -46,6 +46,7 @@ padding-bottom: 50px;
 flex-grow: 1;
 min-width: 100vw;
 max-width: 100%;
+justify-content: space-evenly;
 
 }
 
@@ -62,10 +63,10 @@ max-width: 100%;
 }
 
 #addBook {
-    background-color: #03DAC5;
+    background-color: #03DAC6;
     color: black;
     padding: 0px 10px;
-    border: 1px solid #009b8b;
+    border: 1px solid #018786;
     border-radius: 8px;
     height: 40.4px;
     align-self: center;
@@ -91,7 +92,7 @@ max-width: 100%;
     width: 400px;
     height: 320px;
     padding: 10px;
-    background-color: #009b8b;
+    background-color: #03dac6;
     color: black;
 
 }
@@ -110,13 +111,14 @@ max-width: 100%;
 .bookCard {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    color: black;
+    color: white;
     height: 400px;
     width: 370px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     margin: 10px;
+    background-color: #018786;
 }
 
 .bookCard:hover {
@@ -128,29 +130,57 @@ max-width: 100%;
     display: flex;
     flex-direction: column;
     text-align: center;
+    flex-shrink: 0;
+}
+
+.cardContainer p {
+    font-size: 24px;
 }
 
 .cardHeader {
     text-align: center;
+    width: 370px;
+}
+.cardHeader p {
+    font-size: 32px;
+}
+
+.buttons {
 
 }
 
-#readButtonTrue {
-    background-color:#009b8b;
+.readButtonTrue {
+    background-color:#03DAC6;
     color: white;
     width: 50%;
     align-self: center;
     border-radius: 8px;
-    transform: scale(1.4);
-    border-color: #009b8b;
+    border-color: #03DAC6;
+    font-size: 12pt;
+    margin-bottom: 5px;
+    transform: scale(1.2);
 }
 
-#readButtonFalse {
+.readButtonFalse {
     background-color: crimson;
     color: white;
     width: 50%;
     align-self: center;
     border-radius: 8px;
-    transform: scale(1.4);
     border-color: crimson;
+    transform: scale(1.2);
+    font-size: 12pt;
+}
+
+#deleteBook {
+    background-color: #B00020;
+    color: white;
+    width: 50%;
+    align-self: center;
+    border-radius: 8px;
+    border-color: #B00020;
+    margin-top: 5px;
+    transform: scale(1.2);
+    margin-bottom: 5px;
+    font-size: 12pt;
 }
