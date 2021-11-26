@@ -221,3 +221,7 @@ max-width: 100%;
     margin-bottom: 5px;
     font-size: 12pt;
 }
+
+.footer a {
+    color: black;
+}
