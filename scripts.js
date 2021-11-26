@@ -25,20 +25,20 @@ let card = document.createElement('div');
         card.className = "bookCard";
         card.id = myLibrary.indexOf(newBook)
         card.innerHTML = 
-        `<div class="card">
-            <div class="cardHeader">
-                <p>${newBook.title}</p>
+        `<div class="cardHeader">
+                <p>${newBook.title != "" ? newBook.title : 'ERROR'}</p>
             </div>
             <div class="cardContainer">
                 <p>Author: ${newBook.author}</p>
                 <p>Page Count: ${newBook.pagecount}</p>
                 <div class="buttons">                 
-                    <button id="readButton" class=
-                    ${newBook.beenRead == true ? 'readButtonTrue' : 'readButtonFalse'}>Read</button>    
-                    <button id="deleteBook">Delete</button>
+                    <button id=${"readButton" + '[' + myLibrary.indexOf(newBook) + ']'} class="
+                    ${newBook.beenRead == true ? 'readButtonTrue':'readButtonFalse'} readButtons">Read</button>    
+                    <button id=${"deleteButton" + '[' + myLibrary.indexOf(newBook) + ']'} class=
+                    "deleteButtons">Delete</button>
                 </div>    
             </div>
-        </div>`;
+        `;
     container.appendChild(card);
     
 
@@ -89,19 +89,52 @@ Book.prototype.changeReadStatus = function() {
     }
 }
 
+/* Loops through each button in the readButtons class and adds an event
+listener to toggle the read status of the book, as well as update the appearance
+of the button to reflect read status */
 
 
+let readButton = document.getElementsByClassName('readButtons');
+
+function readButtonToggle () {    
+    for (let i = 0; i < readButton.length; i++) {
+        readButton.item(i).addEventListener('click', () => {
+            if (myLibrary[i].beenRead === false) {
+                document.getElementById(`readButton[${i}]`).className = 'readButtonTrue readButtons';
+                myLibrary[i].beenRead = true;
+            } else if (myLibrary[i].beenRead === true) {
+                document.getElementById(`readButton[${i}]`).className = 'readButtonFalse readButtons';
+                myLibrary[i].beenRead = false;
+            }
+        })
+}}
+
+/* Loops through each button in the deleteButtons class and adds an event
+listener to delete the corresponding object from the mylibrary array, and removes the
+associated card from the page */
+
+let deleteButton = document.getElementsByClassName('deleteButtons')
+
+function deleteBook () {
+    for (let i = 0; i < deleteButton.length; i++) {
+        deleteButton.item(i).addEventListener('click', () => {
+            let element = document.getElementById(i);
+            element.remove();
+            myLibrary.splice(i, 1);
+        })
+    }
+}
 
 submitButton.addEventListener('click', () => {
         let newBook = Object.create(Book);
             newBook.title = title.value;
             newBook.author = author.value;
             newBook.pagecount = pagecount.value;
-            newBook.beenRead = beenReadButton.checked; 
-
-            
-    addBookToLibrary(newBook);
-    makeCard(newBook);
+            newBook.beenRead = beenReadButton.checked;         
+            addBookToLibrary(newBook);
+        makeCard(newBook);
+        readButtonToggle();
+        deleteBook();
     closeForm();
 });
 
@@ -112,11 +145,11 @@ display */
     
     // remove book button
 
-/* button or toggle to toggle the read status of a book */
 
-let readButton = document.getElementById('readButton');
 
-function toggleReadStatus(newBook) {
+
+
+function toggleReadStatus() {
     if (newBook.beenRead != true) {
         newBook.beenRead = true;
         readButton.classList.add('readButtonTrue');
