@@ -61,6 +61,10 @@ function openForm() {
 
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
+    title.value = "";
+    author.value = "";
+    pagecount.value = "";
+    beenReadButton.checked = false;
 }
 
     //allows the add book button to open the new book form
@@ -94,7 +98,7 @@ associated card from the page */
 
 let deleteButton = document.getElementsByClassName('deleteButtons')
 
-function deleteBook () {
+function deleteBookToggle () {
     for (let i = 0; i < deleteButton.length; i++) {
         deleteButton.item(i).addEventListener('click', () => {
             let element = document.getElementById(i);
@@ -117,6 +121,6 @@ submitButton.addEventListener('click', () => {
             addBookToLibrary(newBook);
                 makeCard(newBook);
             readButtonToggle();
-        deleteBook();
-    closeForm();
+        deleteBookToggle();
+closeForm();
 });
