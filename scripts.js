@@ -11,15 +11,16 @@ let beenReadButton = document.getElementById("beenRead");
 let submitButton = document.getElementById("submit");
 
 
-//Book object constructor
+//Book class decleration
 
-function Book(title, author, pagecount, beenRead) {
+class Book {
+    constructor(title, author, pagecount, beenRead) {
     this.title = title;
     this.author = author;
     this.pagecount = pagecount;
     this.beenRead = beenRead;
+    }
 }
-
 // Function to add the newly created book to the myLibrary array
 
 function addBookToLibrary(book) {
@@ -113,7 +114,7 @@ button on the new book form. Calls functions to add functionality to the buttons
 card, then closes the form*/
 
 submitButton.addEventListener('click', () => {
-        let newBook = Object.create(Book);
+        let newBook = new Book();
             newBook.title = title.value;
             newBook.author = author.value;
             newBook.pagecount = pagecount.value;
