@@ -13,11 +13,12 @@
     <div class="container">
         <div class="header">
             <h1>Library</h1>
+            <p id="errorDisplay"></p>
             <button id="addBook">Add Book</button>
         </div>
         <div id="body">
             <div class="form-popup" id="myForm">
-                <form class="form-container">
+                <form class="form-container" novalidate>
                     <h2>Add Book</h2>
                     <label for="title"><b>Title</b></label>
                     <input type="text" placeholder="Title of Book" name="title" required id="title">
@@ -31,7 +32,7 @@
                     <div class="checkboxContainer"><input type="checkbox" class="beenRead" id="beenRead">Read?</input></div>
 
                     <div class="formButtons">
-                        <button type="button" id="submit">Submit</button>
+                        <button type="button" id="submit" onclick="validityController()">Submit</button>
                         <button type="button" class="btn-cancel" onclick="closeForm()">Cancel</button>
                     </div>
                 </form>

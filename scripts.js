@@ -125,3 +125,48 @@ submitButton.addEventListener('click', () => {
         deleteBookToggle();
 closeForm();
 });
+
+/*Validation should be handled by seperate functions, one function per form field. This is to help reinforce the concepts learned
+in the lesson*/
+
+function checkTitleValidity() {
+
+    const title = document.getElementById('title');
+
+    if (title.checkValidity()) {
+        title.setCustomValidity("");
+    } else {
+        title.setCustomValidity('Title field cannot be blank');
+        document.getElementById('errorDisplay').innerHTML += title.validationMessage;
+    }
+}
+
+function checkAuthorValidity() {
+
+    const author = document.getElementById('author');
+
+    if (author.checkValidity()) {
+        author.setCustomValidity("");
+    } else {
+        author.setCustomValidity('Author field cannot be blank');
+        document.getElementById('errorDisplay').innerHTML += author.validationMessage;
+    }
+}
+
+function checkPagecountValidity() {
+
+    const pageCount = document.getElementById('pagecount');
+
+    if (pageCount.checkValidity()) {
+        pageCount.setCustomValidity("");
+    } else {
+        pageCount.setCustomValidity('Page Count field cannot be blank');
+        document.getElementById('errorDisplay').innerHTML += pageCount.validationMessage;
+    }
+}
+
+function validityController() {
+    checkTitleValidity();
+    checkAuthorValidity();
+    checkPagecountValidity();
+}
